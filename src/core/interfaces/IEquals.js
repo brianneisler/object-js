@@ -22,7 +22,7 @@ const IEquals = Interface.declare({
      * @param {*} value
      * @return {boolean}
      */
-    equals: function(value) {}
+    equals: function(value) {} // eslint-disable-line no-unused-vars
 });
 
 

@@ -146,7 +146,7 @@ export default class Obj {
         if (deep) {
             return _.cloneDeepWith(value, customizer);
         }
-        return _.cloneWith(value, customizer)
+        return _.cloneWith(value, customizer);
     }
 
     /**

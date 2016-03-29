@@ -82,5 +82,5 @@ export default class HashUtil {
             hash = hash & hash; // Convert to 32bit integer
         }
         return hash;
-    };
+    }
 }

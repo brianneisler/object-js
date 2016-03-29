@@ -85,7 +85,7 @@ export default class Interface {
      */
     static declare(declaration) {
         return Interface.extend(Implementable, declaration);
-    };
+    }
 
     /**
      * @static
@@ -100,7 +100,7 @@ export default class Interface {
         const prototype         = new implementable();
         const interfaceName     = declaration['_name'] || implementable.name;
         delete declaration['_name'];
-        for (let name in declaration) {
+        for (const name in declaration) {
             if (Object.prototype.hasOwnProperty.call(declaration, name)) {
                 if (_.isFunction(declaration[name])) {
                     prototype[name] = declaration[name];
@@ -126,7 +126,7 @@ export default class Interface {
         });
         Interface.implementableToInterfaceMap.set(newImplementable, newInterface);
         return newImplementable;
-    };
+    }
 
     /**
      * @static

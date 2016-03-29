@@ -33,6 +33,7 @@
                 "max": 40,
                 "properties": "never",
                 "exceptions": [
+                    "i",
                     "x",
                     "_"
                 ]

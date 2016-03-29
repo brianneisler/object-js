@@ -5,7 +5,6 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
-import recipe from 'gulp-recipe';
 import sourcemaps from 'gulp-sourcemaps';
 import util from 'gulp-util';
 
@@ -37,7 +36,7 @@ gulp.task('prod', ['babel']);
 
 gulp.task('dev', ['babel', 'lint', 'babel-watch', 'lint-watch']);
 
-gulp.task('babel', function() {
+gulp.task('babel', () => {
     return gulp.src(sources.babel)
         .pipe(sourcemaps.init({
             loadMaps: true
@@ -52,7 +51,15 @@ gulp.task('babel', function() {
         });
 });
 
-gulp.task('lint', recipe.get('eslint', sources.eslint));
+gulp.task('lint', () => {
+    return gulp.src(sources.eslint)
+        .pipe(eslint())
+        .pipe(eslint.formatEach())
+        .pipe(eslint.failOnError())
+        .on('error', (error) => {
+            util.log('Stream Exiting With Error', error);
+        });
+});
 
 gulp.task('test', ['lint']);
 

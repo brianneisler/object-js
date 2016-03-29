@@ -45,7 +45,7 @@ export default class Class {
          * @private
          * @type {string}
          */
-        this.name           = name || "";
+        this.name           = name || '';
 
         /**
          * @private
@@ -189,7 +189,7 @@ export default class Class {
         if (!_class) {
             const superPrototype = Object.getPrototypeOf(prototype);
             if (superPrototype) {
-                superclass = Class.get(_.get(superPrototype, 'constructor'))
+                superclass = Class.get(_.get(superPrototype, 'constructor'));
             }
             _class = new Class(constructor, [], prototype._name || constructor.name, superclass);
             Class.constructorToClassMap.set(constructor, _class);
@@ -206,13 +206,13 @@ export default class Class {
     static implement(constructor, implementable) {
         const _class = Class.get(constructor);
         if (Class.doesImplement(constructor, implementable)) {
-            throw new Error("Interface '" + implementable.getName() + "' has already been implemented by " +
-                "the class '" + _class.getName() + "'");
+            throw new Error(`Interface '${implementable.getName()}' has already been implemented by 
+                the class '${_class.getName()}'`);
         }
-        for (let methodName in implementable.prototype) {
+        for (const methodName in implementable.prototype) {
             if (!_.isFunction(constructor.prototype[methodName])) {
-                throw new Error("Class '" + _class.getName() + "' does not implement method '" +
-                    methodName + "' of interface '" + implementable.getInterface().getName() + "'");
+                throw new Error(`Class '${_class.getName()}' does not implement method '
+                   ${methodName}' of interface '${implementable.getInterface().getName()}'`);
             }
         }
         _class.getInterfaces().push(implementable.getInterface());
@@ -226,11 +226,11 @@ export default class Class {
      * @template {T}
      */
     static newInstance = function(constructor) {
-        function F(args) {
+        function Farce(args) {
             return Function.prototype.apply.call(constructor, this, args);
         }
-        F.prototype = constructor.prototype;
-        return new F(arguments);
+        Farce.prototype = constructor.prototype;
+        return new Farce(arguments);
     };
 
     /**
@@ -241,11 +241,11 @@ export default class Class {
      * @template {T}
      */
     static newInstanceWithArray(constructor, args) {
-        function F(args) {
-            return Function.prototype.apply.call(constructor, this, args);
+        function Farce(moreArgs) {
+            return Function.prototype.apply.call(constructor, this, moreArgs);
         }
-        F.prototype = constructor.prototype;
-        return new F(args);
+        Farce.prototype = constructor.prototype;
+        return new Farce(args);
     }
 
     /**
