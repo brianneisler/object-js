@@ -22,7 +22,7 @@ const IClone = Interface.declare({
      * @param {boolean=} deep
      * @return {*}
      */
-    clone: function(deep) {} // eslint-disable-line no-unused-vars
+    clone(deep) {} // eslint-disable-line no-unused-vars
 });
 
 

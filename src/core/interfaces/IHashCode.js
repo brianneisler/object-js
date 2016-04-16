@@ -21,7 +21,7 @@ const IHashCode = Interface.declare({
     /**
      * @return {number}
      */
-    hashCode: function() {}
+    hashCode() {}
 });
 
 
