@@ -6,7 +6,7 @@ import Interface from '../Interface';
 
 
 //-------------------------------------------------------------------------------
-// Declare Interface
+// Interface
 //-------------------------------------------------------------------------------
 
 /**
@@ -14,15 +14,16 @@ import Interface from '../Interface';
  */
 const IEquals = Interface.declare({
 
-    //-------------------------------------------------------------------------------
-    // Interface Methods
-    //-------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------
+  // Interface Methods
+  //-------------------------------------------------------------------------------
 
-    /**
-     * @param {*} value
-     * @return {boolean}
-     */
-    equals(value) {} // eslint-disable-line no-unused-vars
+  /**
+   * @param {*} value
+   * @return {boolean}
+   */
+  equals(value) { // eslint-disable-line no-unused-vars
+  } 
 });
 
 

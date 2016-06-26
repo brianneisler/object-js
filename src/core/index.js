@@ -1,3 +1,4 @@
+export * from './fns';
 export * from './interfaces';
 
 export { default as Class } from './Class';
